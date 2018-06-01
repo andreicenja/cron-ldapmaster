@@ -1,0 +1,1 @@
+*/5 * * * * root /etc/cron.eea/backup_eionet_ldap >> /var/log/cron.log 2>&1
