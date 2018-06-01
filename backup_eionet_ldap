@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TRGLOC=/var/local/ldapbackup
+
+if [ ! -d $TRGLOC ]; then
+    /usr/bin/echo "Backup location missing!"
+    exit 2
+fi
+
+DATE="$(/usr/bin/date +%Y-%m-%d_%H-%M-%S)"
+
+/usr/sbin/slapcat | /usr/bin/gzip > ${TRGLOC}/eionet-ldapDB.ldif-$DATE.gz
+
+# remove files older than 150 days
+
+for bckfile in $(/usr/bin/find $TRGLOC -type f -mtime +150); do
+    /usr/bin/rm -f $bckfile
+done
