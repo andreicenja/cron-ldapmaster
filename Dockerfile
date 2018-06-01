@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Andrei Cenja <andrei.cenja@eea.europa.eu>
 
-# assuming the eionet.schema and DB_CONFIG are deployed in the right places by the ldapmaster container
+# assuming the LDAP config is deployed in the right places by the ldapmaster container
 
 RUN yum install -y openldap-servers openldap 
 #cronie
