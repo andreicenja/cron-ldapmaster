@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # just in case 
-if [ -z "HISTORY_LEVEL" ]; then
+if [ -z "$HISTORY_LEVEL" ]; then
     HISTORY_LEVEL=150
 fi
  
