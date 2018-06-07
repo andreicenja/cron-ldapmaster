@@ -1,5 +1,5 @@
 #!/bin/bash
-HISTLEVEL=5
+HISTLEVEL=2
 TRGLOC=/var/local/ldapbackup
 
 if [ ! -d $TRGLOC ]; then
