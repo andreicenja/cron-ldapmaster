@@ -1,5 +1,5 @@
 #!/bin/bash
-
+HISTLEVEL=5
 TRGLOC=/var/local/ldapbackup
 
 if [ ! -d $TRGLOC ]; then
@@ -11,8 +11,8 @@ DATE="$(/usr/bin/date +%Y-%m-%d_%H-%M-%S)"
 
 /usr/sbin/slapcat | /usr/bin/gzip > ${TRGLOC}/eionet-ldapDB.ldif-$DATE.gz
 
-# remove files older than 150 days
+# remove files older than $HISTLEVEL days
 
-for bckfile in $(/usr/bin/find $TRGLOC -type f -mtime +150); do
+for bckfile in $(/usr/bin/find $TRGLOC -type f -mtime +$HISTLEVEL); do
     /usr/bin/rm -f $bckfile
 done
